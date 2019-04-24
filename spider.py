@@ -16,8 +16,8 @@ class Spider:
         Spider.project_name = project_name
         Spider.base_url = base_url
         Spider.domain_name = domain_name
-        Spider.queue_file = Spider.project_name + '/queue.txt'
-        Spider.crawled_file = Spider.project_name + '/crawled.txt'
+        Spider.queue_file = f'sites/{Spider.project_name}/queue.txt'
+        Spider.crawled_file = f'sites/{Spider.project_name}/crawled.txt'
         self.boot()
         self.crawl_page('Initial Spider', Spider.base_url)
 
@@ -65,6 +65,6 @@ class Spider:
             Spider.queue.add(url)
 
     @staticmethod
-    def update_file():
+    def update_files():
         set_to_file(Spider.queue, Spider.queue_file)
         set_to_file(Spider.crawled, Spider.crawled_file)

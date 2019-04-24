@@ -6,8 +6,8 @@ def create_project_dir(directory):
         os.makedirs(directory)
 
 def create_data_files(project_name, base_url):
-    queue = project_name + '/queue.txt'
-    crawled = project_name + '/crawled.txt'
+    queue = f'sites/{project_name}/queue.txt'
+    crawled = f'sites/{project_name}/crawled.txt'
     if not os.path.isfile(queue):
         write_file(queue, base_url)
     if not os.path.isfile(crawled):
@@ -31,6 +31,7 @@ def file_to_set(file_name):
     with open(file_name, 'rt') as file:
         for line in file:
             results.add(line.strip())
+    return results
 
 def set_to_file(link_set, file):
     delete_file_contents(file)
