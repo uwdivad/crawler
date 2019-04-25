@@ -3,7 +3,6 @@ from link_finder import LinkFinder
 from utils import *
 
 class Spider:
-
     project_name = ''
     base_url = ''
     domain_name = ''
