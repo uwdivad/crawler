@@ -12,7 +12,6 @@ CRAWLED_FILE = f'sites/{PROJECT_NAME}/crawled.txt'
 NUMBER_OF_THREADS = 8
 
 queue = Queue()
-Spider(PROJECT_NAME, HOMEPAGE, DOMAIN_NAME)
 
 def work():
     while True:
@@ -39,5 +38,13 @@ def crawl():
         create_jobs()
 
 if __name__ == "__main__":
+    PROJECT_NAME = input("Enter a project name:")
+    HOMEPAGE = input("Enter a homepage url:")
+    DOMAIN_NAME = get_domain_name(HOMEPAGE)
+    QUEUE_FILE = f'sites/{PROJECT_NAME}/queue.txt'
+    CRAWLED_FILE = f'sites/{PROJECT_NAME}/crawled.txt'
+
+    Spider(PROJECT_NAME, HOMEPAGE, DOMAIN_NAME)
+
     create_workers()
     crawl()

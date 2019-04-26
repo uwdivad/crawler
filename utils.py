@@ -1,9 +1,9 @@
 import os
 
 def create_project_dir(directory):
-    if not os.path.exists(directory):
-        print(f'Creating project {directory}')
-        os.makedirs(directory)
+    if not os.path.exists(f'sites/{directory}'):
+        print(f'Creating project sites/{directory}')
+        os.makedirs(f'sites/{directory}')
 
 def create_data_files(project_name, base_url):
     queue = f'sites/{project_name}/queue.txt'
